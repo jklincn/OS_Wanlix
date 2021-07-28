@@ -1,0 +1,132 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 IMPORT           guiNextTaskSp
+    2 00000000                 IMPORT           gpuiCurTaskSpAddr
+    3 00000000         
+    4 00000000                 EXPORT           WLX_ContextSwitch
+    5 00000000                 EXPORT           WLX_SwitchToTask
+    6 00000000         
+    7 00000000                 PRESERVE8
+    8 00000000                 THUMB
+    9 00000000         
+   10 00000000                 AREA             CODE, CODE, READONLY
+   11 00000000         
+   12 00000000         WLX_ContextSwitch
+   13 00000000         
+   14 00000000         ;保存当前任务的栈信息
+   15 00000000 4603            MOV              R3,R0       ;将寄存器组地
+                                                            址存入R3寄存�
+                                                            �
+   16 00000002 E8A3 1FF1       STMIA            R3!,{R0,R4-R12} ;保存R0、R4~
+                                                            R12寄存器
+   17 00000006 F843 DB04       STMIA            R3!,{R13}   ;保存SP寄存器
+   18 0000000A F843 EB04       STMIA            R3!,{R14}   ;保存LR寄存器
+   19 0000000E F3EF 8203       MRS              R2,XPSR     ;获取XPSR寄存�
+                                                            �数值
+   20 00000012 601A            STMIA            R3,{R2}     ;保存到寄存器
+                                                            组中的XPSR
+   21 00000014         
+   22 00000014         ;加载即将要运行任务的栈信息
+   23 00000014 E8B1 1FF1       LDMIA            R1!,{R0,R4-R12} ;恢复R0、R4~
+                                                            R12寄存器
+   24 00000018 F8D1 D000       LDMIA            R1,{R13}    ;恢复SP寄存器
+   25 0000001C F101 0108       ADD              R1,#8       ;R1指向寄存器�
+                                                            ��中的XPSR
+   26 00000020 680A            LDMIA            R1,{R2}     ;获取寄存器组
+                                                            中的XPSR数值
+   27 00000022 F382 8803       MSR              XPSR,R2     ;恢复XPSR寄存�
+                                                            �
+   28 00000026 F1A1 0104       SUB              R1,#4       ;R1指向寄存器�
+                                                            ��中的LR
+   29 0000002A F8D1 F000       LDMIA            R1,{PC}     ;切换任务
+   30 0000002E         
+   31 0000002E         WLX_SwitchToTask
+   32 0000002E         
+   33 0000002E         ;恢复将要运行任务的栈信息并运行新任务
+   34 0000002E 4602            MOV              R2,R0       ;将寄存器组地
+                                                            址存入R2寄存�
+                                                            �
+   35 00000030 E8B2 1FF1       LDMIA            R2!,{R0,R4-R12} ;恢复R0、R4~
+                                                            R12寄存器
+   36 00000034 F8D2 D000       LDMIA            R2,{R13}    ;恢复SP寄存器
+   37 00000038 F102 0208       ADD              R2 ,#8      ;R2指向寄存器�
+                                                            ��中的XPSR
+   38 0000003C 6811            LDMIA            R2,{R1}     ;获取寄存器组
+                                                            中的XPSR数值
+   39 0000003E F381 8803       MSR              XPSR,R1     ;恢复XPSR寄存�
+                                                            �
+   40 00000042 F1A2 0204       SUB              R2,#4       ;R2指向寄存器�
+                                                            ��中的LR
+   41 00000046 F8D2 F000       LDMIA            R2,{PC}     ;运行首个任务
+                                                            
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                       
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\os_cpu_s.d -o.\objects\os_cpu_s.o -IC:\Users\lin\AppData
+\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefine="__MICROLI
+B SETA 1" --predefine="__UVISION_VERSION SETA 534" --predefine="STM32F10X_HD SE
+TA 1" --list=.\listings\os_cpu_s.lst ..\User\Wanlix\os_cpu_s.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CODE 00000000
+
+Symbol: CODE
+   Definitions
+      At line 10 in file ..\User\Wanlix\os_cpu_s.asm
+   Uses
+      None
+Comment: CODE unused
+WLX_ContextSwitch 00000000
+
+Symbol: WLX_ContextSwitch
+   Definitions
+      At line 12 in file ..\User\Wanlix\os_cpu_s.asm
+   Uses
+      At line 4 in file ..\User\Wanlix\os_cpu_s.asm
+Comment: WLX_ContextSwitch used once
+WLX_SwitchToTask 0000002E
+
+Symbol: WLX_SwitchToTask
+   Definitions
+      At line 31 in file ..\User\Wanlix\os_cpu_s.asm
+   Uses
+      At line 5 in file ..\User\Wanlix\os_cpu_s.asm
+Comment: WLX_SwitchToTask used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+gpuiCurTaskSpAddr 00000000
+
+Symbol: gpuiCurTaskSpAddr
+   Definitions
+      At line 2 in file ..\User\Wanlix\os_cpu_s.asm
+   Uses
+      None
+Comment: gpuiCurTaskSpAddr unused
+guiNextTaskSp 00000000
+
+Symbol: guiNextTaskSp
+   Definitions
+      At line 1 in file ..\User\Wanlix\os_cpu_s.asm
+   Uses
+      None
+Comment: guiNextTaskSp unused
+2 symbols
+338 symbols in table
