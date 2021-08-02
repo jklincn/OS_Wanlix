@@ -1,6 +1,3 @@
-    IMPORT guiNextTaskSp
-    IMPORT gpuiCurTaskSpAddr
-    
     EXPORT WLX_SwitchToTask
     EXPORT WLX_ContextSwitch
  

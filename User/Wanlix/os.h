@@ -58,12 +58,7 @@ void WLX_TaskStackInit(W_TCB* ptrTcb,FUNC ptrFunc,void * param);
 void  WLX_ContextSwitch(STACKREG * CurTaskStackReg,STACKREG * NextTaskStackReg);
 void  WLX_SwitchToTask(STACKREG * NextTaskStackReg);
 
-
 OS_EXT W_TCB* ptrCurrentTcb;             /* 当前运行的任务的TCB */
-OS_EXT U32 guiNextTaskSp;              /* 将要运行的任务堆栈指针 */
-OS_EXT U32* gpuiCurTaskSpAddr;         /* 存放当前运行任务堆栈指针的地址 */
-OS_EXT W_TCB* gpstrRootTaskTcb;        /* 根任务的TCB指针 */
-
 
 #endif
 
