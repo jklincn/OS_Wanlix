@@ -1,7 +1,6 @@
     EXPORT WLX_SwitchToTask
     EXPORT WLX_ContextSwitch
  
-
     PRESERVE8
 	THUMB
 		

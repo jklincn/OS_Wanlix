@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\OS_Wanlix.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\OS_Wanlix.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jul 28 23:15:45 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Aug 05 20:27:06 2021
 <BR><P>
 <H3>Maximum Stack Usage =        124 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -19,9 +19,7 @@ Functions with no stack information
 <P>
 <H3>
 Mutually Recursive functions
-</H3> <LI><a href="#[8]">OS_CPU_PendSVHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">OS_CPU_PendSVHandler</a><BR>
- <LI><a href="#[9]">OS_CPU_SysTickHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">OS_CPU_SysTickHandler</a><BR>
- <LI><a href="#[1c]">ADC1_2_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1c]">ADC1_2_IRQHandler</a><BR>
+</H3> <LI><a href="#[1c]">ADC1_2_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1c]">ADC1_2_IRQHandler</a><BR>
 </UL>
 <P>
 <H3>
@@ -60,9 +58,8 @@ Function Pointers
  <LI><a href="#[2b]">I2C2_EV_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[3]">MemManage_Handler</a> from stm32f10x_it.o(i.MemManage_Handler) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[1]">NMI_Handler</a> from stm32f10x_it.o(i.NMI_Handler) referenced from startup_stm32f10x_hd.o(RESET)
- <LI><a href="#[8]">OS_CPU_PendSVHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
- <LI><a href="#[9]">OS_CPU_SysTickHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[b]">PVD_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
+ <LI><a href="#[8]">PendSV_Handler</a> from stm32f10x_it.o(i.PendSV_Handler) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[f]">RCC_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[33]">RTCAlarm_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[d]">RTC_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
@@ -72,6 +69,7 @@ Function Pointers
  <LI><a href="#[2e]">SPI2_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[3d]">SPI3_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[6]">SVC_Handler</a> from stm32f10x_it.o(i.SVC_Handler) referenced from startup_stm32f10x_hd.o(RESET)
+ <LI><a href="#[9]">SysTick_Handler</a> from stm32f10x_it.o(i.SysTick_Handler) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[47]">SystemInit</a> from system_stm32f10x.o(i.SystemInit) referenced from startup_stm32f10x_hd.o(.text)
  <LI><a href="#[c]">TAMPER_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
  <LI><a href="#[22]">TIM1_BRK_IRQHandler</a> from startup_stm32f10x_hd.o(.text) referenced from startup_stm32f10x_hd.o(RESET)
@@ -136,20 +134,6 @@ Global Symbols
 <P><STRONG><a name="[71]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$00000011))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
-</UL>
-<P><STRONG><a name="[8]"></a>OS_CPU_PendSVHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_CPU_PendSVHandler
-</UL>
-<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_CPU_PendSVHandler
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
-</UL>
-<P><STRONG><a name="[9]"></a>OS_CPU_SysTickHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_CPU_SysTickHandler
-</UL>
-<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OS_CPU_SysTickHandler
-</UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[1c]"></a>ADC1_2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
@@ -398,6 +382,9 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Configuration
 </UL>
 
+<P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.PendSV_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
+</UL>
 <P><STRONG><a name="[5d]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(i.RCC_APB2PeriphClockCmd))
 <BR><BR>[Called By]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Config
 </UL>
@@ -409,6 +396,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[6]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
+</UL>
+<P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
 <P><STRONG><a name="[47]"></a>SystemInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, system_stm32f10x.o(i.SystemInit))
